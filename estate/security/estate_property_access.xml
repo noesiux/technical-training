@@ -1,0 +1,11 @@
+<odoo>
+    <record id="access_estate_property" model="ir.model.access">
+        <field name="name">access_estate_property</field>
+        <field name="model_id" ref="model_estate_property"/>
+        <field name="group_id" ref="base.group_user"/>
+        <field name="perm_read" eval="1"/>   <!-- Permite leer registros -->
+        <field name="perm_write" eval="0"/>  <!-- No permite modificar registros -->
+        <field name="perm_create" eval="0"/> <!-- No permite crear nuevos registros -->
+        <field name="perm_unlink" eval="0"/> <!-- No permite eliminar registros -->
+    </record>
+</odoo>
