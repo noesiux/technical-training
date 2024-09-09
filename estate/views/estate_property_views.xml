@@ -1,0 +1,69 @@
+<odoo>
+    <!-- Definición de la vista tipo árbol (lista) para Estate Property -->
+    <record id="view_estate_property_tree" model="ir.ui.view">
+        <field name="name">estate.property.tree</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <tree string="Estate Properties">
+                <field name="name"/>
+                <field name="expected_price"/>
+                <field name="selling_price"/>
+                <field name="bedrooms"/>
+                <field name="living_area"/>
+                <field name="date_availability"/>
+                <field name="active"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Definición de la vista tipo formulario para Estate Property -->
+    <record id="view_estate_property_form" model="ir.ui.view">
+        <field name="name">estate.property.form</field>
+        <field name="model">estate.property</field>
+        <field name="arch" type="xml">
+            <form string="Estate Property">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="postcode"/>
+                            <field name="date_availability"/>
+                        </group>
+                        <group>
+                            <field name="expected_price"/>
+                            <field name="selling_price"/>
+                            <field name="bedrooms"/>
+                            <field name="living_area"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Description">
+                            <field name="description"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <footer>
+                    <button string="Save" type="object" class="btn-primary" name="action_save"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- Menú para acceder a Estate Property -->
+    <menuitem id="menu_estate_root" name="Estate" sequence="1"/>
+
+    <menuitem id="menu_estate_property" name="Properties" parent="menu_estate_root" action="action_estate_property" sequence="2"/>
+
+    <!-- Acción para mostrar la vista de propiedades -->
+    <record id="action_estate_property" model="ir.actions.act_window">
+        <field name="name">Estate Properties</field>
+        <field name="res_model">estate.property</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                Click to create a new property.
+            </p>
+        </field>
+    </record>
+</odoo>
