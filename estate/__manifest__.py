@@ -1,6 +1,6 @@
 {
     'name': 'Estate NHDZ3',
-    'version': '1.1',
+    'version': '1.2',
     'depends': ['base'],
     'data': [
         'views/estate_property_views.xml',
